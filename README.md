@@ -162,6 +162,6 @@ This project is built for **educational purposes only**. It is not a substitute 
 
 ## 👤 Author
 
-**Your Name**  
-B.Tech [Your Branch] | [Your College]  
-[LinkedIn](https://linkedin.com) · [GitHub](https://github.com)
+Khushi V.R Yewale  
+B.Tech [AI]
+[LinkedIn](https://www.linkedin.com/in/khushi-yewale-44b898375/) · [GitHub](https://github.com/khushiy05)
