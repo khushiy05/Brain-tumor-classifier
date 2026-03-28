@@ -1,0 +1,175 @@
+# 🚀 SETUP GUIDE — Step by Step
+# Brain Tumor Classifier | Brain Tumor Classification using CNN
+
+Follow these steps IN ORDER to get the project running on your machine.
+
+═══════════════════════════════════════════════════════════
+STEP 1 — PREREQUISITES
+═══════════════════════════════════════════════════════════
+
+Make sure you have:
+  ✅ Python 3.10 or 3.11 installed
+     Download: https://www.python.org/downloads/
+
+  ✅ VS Code installed
+     Download: https://code.visualstudio.com/
+
+  ✅ Git installed
+     Download: https://git-scm.com/
+
+  ✅ A Kaggle account (free)
+     Register: https://www.kaggle.com/
+
+═══════════════════════════════════════════════════════════
+STEP 2 — OPEN PROJECT IN VS CODE
+═══════════════════════════════════════════════════════════
+
+1. Put this project folder somewhere easy, e.g.:
+     C:\Users\YourName\Projects\brain-tumor-classifier\
+
+2. Open VS Code → File → Open Folder → select the folder
+
+3. Open the integrated terminal:
+     View → Terminal   (or Ctrl + `)
+
+═══════════════════════════════════════════════════════════
+STEP 3 — CREATE A VIRTUAL ENVIRONMENT
+═══════════════════════════════════════════════════════════
+
+In the VS Code terminal, run:
+
+  python -m venv venv
+
+Activate it:
+  Windows:   venv\Scripts\activate
+  Mac/Linux: source venv/bin/activate
+
+You should see (venv) at the start of your terminal line.
+
+═══════════════════════════════════════════════════════════
+STEP 4 — INSTALL DEPENDENCIES
+═══════════════════════════════════════════════════════════
+
+  pip install -r requirements.txt
+
+This installs TensorFlow, Streamlit, etc. (~5–10 min depending on internet speed)
+
+═══════════════════════════════════════════════════════════
+STEP 5 — DOWNLOAD THE DATASET
+═══════════════════════════════════════════════════════════
+
+1. Go to: https://www.kaggle.com/datasets/sartajbhuvaji/brain-tumor-classification-mri
+
+2. Click "Download" (you need to be logged in to Kaggle)
+
+3. Unzip the downloaded file.
+
+4. Inside the project folder, create a folder called: data
+
+5. Copy the "Training" and "Testing" folders into data/ so it looks like:
+
+     brain-tumor-classifier/
+     └── data/
+         ├── Training/
+         │   ├── glioma/
+         │   ├── meningioma/
+         │   ├── notumor/
+         │   └── pituitary/
+         └── Testing/
+             ├── glioma/
+             ├── meningioma/
+             ├── notumor/
+             └── pituitary/
+
+═══════════════════════════════════════════════════════════
+STEP 6 — TRAIN THE MODEL
+═══════════════════════════════════════════════════════════
+
+In the VS Code terminal (venv must be active):
+
+  python model/train.py
+
+This will:
+  - Train the CNN for up to 20 epochs (early stopping kicks in ~18)
+  - Print training/validation accuracy each epoch
+  - Save the model to: model/brain_tumor_cnn.h5
+  - Save plots to: assets/
+
+Training time: ~10–30 min on CPU | ~5 min on GPU
+
+═══════════════════════════════════════════════════════════
+STEP 7 — RUN THE WEB APP
+═══════════════════════════════════════════════════════════
+
+  streamlit run app.py
+
+Your browser will open automatically at:
+  http://localhost:8501
+
+Upload any brain MRI image (from the Testing/ folder) and see the prediction!
+
+═══════════════════════════════════════════════════════════
+STEP 8 — PUSH TO GITHUB
+═══════════════════════════════════════════════════════════
+
+1. Create a new repo on GitHub:
+   - Go to github.com → New repository
+   - Name: brain-tumor-classifier
+   - Keep it Public
+   - Do NOT add README (we already have one)
+
+2. In VS Code terminal:
+
+   git init
+   git add .
+   git commit -m "Initial commit: Brain Tumor CNN Classifier"
+   git branch -M main
+   git remote add origin https://github.com/YOUR_USERNAME/brain-tumor-classifier.git
+   git push -u origin main
+
+   Replace YOUR_USERNAME with your GitHub username.
+
+NOTE: The model file (brain_tumor_cnn.h5) is in .gitignore because
+it is large. To share it, upload it to Google Drive and add a link in
+your README.
+
+═══════════════════════════════════════════════════════════
+STEP 9 — ADD TO RESUME 🎉
+═══════════════════════════════════════════════════════════
+
+Add this to your resume under Projects:
+
+  Brain Tumor Classification using CNN
+  • Developed a CNN model in TensorFlow/Keras to classify brain MRI
+    scans into 4 categories: glioma, meningioma, pituitary, no tumor
+  • Achieved ~89% test accuracy using data augmentation, batch
+    normalization, and early stopping
+  • Deployed as an interactive web application using Streamlit
+  • Tech Stack: Python, TensorFlow, Keras, Streamlit, scikit-learn
+  • GitHub: github.com/YOUR_USERNAME/brain-tumor-classifier
+
+═══════════════════════════════════════════════════════════
+INTERVIEW ANSWERS (Quick Reference)
+═══════════════════════════════════════════════════════════
+
+Q: What is a CNN?
+A: A Convolutional Neural Network uses convolutional layers to
+   automatically learn spatial features from images, like edges,
+   textures, and shapes — without manual feature engineering.
+
+Q: Why did you use BatchNormalization?
+A: It normalizes the output of each layer, making training faster,
+   more stable, and less sensitive to weight initialization.
+
+Q: What is Dropout?
+A: A regularization technique that randomly disables neurons during
+   training to prevent overfitting.
+
+Q: Why Adam optimizer?
+A: Adam adapts the learning rate for each parameter individually,
+   combining the benefits of AdaGrad and RMSProp — generally converges
+   faster than plain SGD.
+
+Q: How did you handle class imbalance?
+A: Data augmentation generates additional varied samples per class,
+   and I used categorical cross-entropy which handles multi-class well.

@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Train Model",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/model/train.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Run Streamlit App",
+      "type": "python",
+      "request": "launch",
+      "module": "streamlit",
+      "args": ["run", "app.py"],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

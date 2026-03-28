@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/
+env/
+
+# Model weights (large files — use Git LFS or share via Google Drive)
+model/*.h5
+model/*.keras
+
+# Dataset (download separately from Kaggle)
+data/
+
+# Generated assets
+assets/training_history.png
+assets/confusion_matrix.png
+
+# Streamlit
+.streamlit/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/settings.json
+.idea/
